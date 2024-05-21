@@ -36,7 +36,7 @@ function ReadData() {
         listPeople = JSON.parse(localStorage.getItem(listPeople))
     }
 
-    const html = "";
+    let html = "";
     listPeople.forEach(function (element, index) {
         html += "<tr>";
         html += "<td>" + element.email + "</td>";
@@ -50,7 +50,37 @@ function ReadData() {
 
 }
 
-function
+document.onload = ReadData();
+
+function addData() {
+    if (ValidateForm === true) {
+        let email = document.getElementById('InputEmail').value
+        let name = document.getElementById('InputName').value
+        let phone = document.getElementById('InputNumber').value
+
+        var listPeople;
+
+        if (localStorage.getItem('listpeople' == null)) {
+            listPeople = [];
+        } else {
+            listPeople = JSON.parse(localStorage.getItem(listPeople))
+        }
+
+        listPeople.push({
+            email: email,
+            name: name,
+            phone: phone
+        });
+
+        localStorage.setItem('listPeople', JSON.stringify());
+
+        ReadData();
+        document.getElementById('InputEmail').value = "";
+        document.getElementById('InputName').value = "";
+        document.getElementById('InputNumber').value = "";
+    }
+}
+
 
 
 
