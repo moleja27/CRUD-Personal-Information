@@ -1,3 +1,4 @@
+//Im going to connect what the placeholder gives us and look for the values.
 // ValidateForm function to validate form input fields
 function ValidateForm() {
     let email = document.getElementById('InputEmail').value;
@@ -25,6 +26,8 @@ function ValidateForm() {
     return true;
 }
 
+// We have a state where it says if the email is equal to empty, it will return false and send us an alert that says "the field is required" and it will continue to the else where it says if the email does not include an at sign then it will return false  and show an alert where it says that "the email is not valid". and the same will happen with the others if
+
 // ReadData function to read data from localStorage and display it in the table
 function ReadData() {
     let listPeople;
@@ -48,6 +51,12 @@ function ReadData() {
 
     document.querySelector('#tableData tbody').innerHTML = html;
 }
+
+//function ReadData() {This function is responsible for reading the data stored in localStorage and displaying it in a table in the HTML document. A variable is initialized and a condition is added that says if an element arrives at the localStorage with key, it is parsed from JSON to a JavaScript object using JSON.parse() and assigned to listPeople if it is not taken as an empty array.
+
+//continuing to initialize another variable let html = ""; which will take the information and send it to an anonymous function that is passed as an argument to the forEach method. that will go through the information and add space and the index.
+
+
 
 // Set window.onload to call ReadData when the page loads
 window.onload = function () {
@@ -85,6 +94,8 @@ function AddData() {
     }
 }
 
+//This function is responsible for validating the data entered in a form, adding it to a list stored in localStorage, updating the data table displayed on the page, and finally clearing the form fields.
+
 // deleteData function to remove data from localStorage
 function deleteData(index) {
     let listPeople = JSON.parse(localStorage.getItem('listPeople'));
@@ -102,6 +113,9 @@ function editData(index) {
     document.getElementById('InputNumber').value = person.phone;
     deleteData(index);
 }
+
+//and finally we have an AddData() Function
+//This function is responsible for handling the addition of data entered in a form to a list stored in localStorage, updating the display of the list in an HTML table, and cleaning up the form fields after the addition.
 
 
 
